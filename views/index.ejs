@@ -1,18 +1,67 @@
-<% layout( 'layout' ) -%>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Tabs - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../public/stylesheets/screen.css">
+    <style>
+        #tabs { margin-top: 1em; }
+        #tabs li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+    </style>
+    <script>
+        $(function() {
+            $( "#tabs" ).tabs();
+        });
 
-<h1 id="page-title"><%= title %></h1>
+    </script>
 
-<div id="list">
-  <form action="/create" method="post" accept-charset="utf-8">
-    <div class="item-new">
-      <input class="input" type="text" name="content" />
+</head>
+<body>
+<form action="/create" method="post" accept-charset="utf-8">
+    <div >
+        <input  type="text" name="lesson" />
+        <input  type="datetime-local" name="time" />
+        <input  type="text" name="trainer" />
+        <input  type="number" name="price" />
+        <input type="submit"/>
     </div>
-  </form>
+</form>
 
-<% todos.forEach( function ( todo ){ %>
-  <div class="item">
-    <a class="update-link" href="/edit/<%= todo._id %>" title="Update this todo item"><%= todo.content %></a>
-    <a class="del-btn" href="/destroy/<%= todo._id %>" title="Delete this todo item">Delete</a>
-  </div>
-<% }); %>
+<div id="tabs">
+
+<ul>
+    <% todos.forEach( function ( todo){ %>
+   <li> <a href="#tabs-1"><%=todo.time.toDateString()%></a> <span class="ui-icon ui-icon-close" role="presentation">Remove Tab</span></li>
+    <% });%>
+</ul>
+    <div id="tabs-1">
+
+            <% todos.forEach( function(todo ) { %>
+
+        <table>
+
+            <tr>
+
+                <td>
+
+                    <%= todo.lesson %><%= todo.time.toDateString() %><%= todo.trainer %><%= todo.price %>
+                    <a class="del-btn" href="/destroy/<%= todo._id %>" title="Delete this todo item">Delete</a>
+
+                </td>
+
+            </tr>
+        </table>
+            <% });%>
+
+
+    </div>
+
+
+
 </div>
+
+</body>
+</html>

@@ -1,11 +1,16 @@
 {
-  "name"         : "todo",
-  "version"      : "0.0.1",
-  "private"      : true,
-  "dependencies" : {
-    "express"    : "3.4.7",
-    "ejs"        : "0.8.5",
-    "ejs-locals" : "1.0.2",
-    "mongoose"   : "3.8.1"
+  "name": "todo",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "calendar": "^0.1.0",
+    "date-format": "0.0.2",
+    "ejs": "0.8.5",
+    "ejs-locals": "1.0.2",
+    "express": "3.4.7",
+    "moment": "2.8.2",
+    "mongodb": "1.4.8",
+    "mongoose": "3.8.1",
+    "mongoose-middleware": "^0.2.8"
   }
 }
