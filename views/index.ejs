@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>jQuery UI Tabs - Default functionality</title>
+    <title></title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
@@ -19,45 +19,57 @@
     </script>
 
 </head>
-<body>
+<body >
+
 <form action="/create" method="post" accept-charset="utf-8">
     <div >
         <input  type="text" name="lesson" />
         <input  type="datetime-local" name="time" />
         <input  type="text" name="trainer" />
         <input  type="number" name="price" />
-        <input type="submit"/>
+        <input id="add" type="submit"/>
     </div>
 </form>
 
 <div id="tabs">
+    <ul> <% todos.forEach( function ( todo){ %>
+        <li>
 
-<ul>
-    <% todos.forEach( function ( todo){ %>
-   <li> <a href="#tabs-1"><%=todo.time.toDateString()%></a> <span class="ui-icon ui-icon-close" role="presentation">Remove Tab</span></li>
-    <% });%>
-</ul>
+
+
+
+
+
+       <a href="#tabs-1"><%=todo.time%> </a>
+
+
+
+        </li> <% });%></ul>
     <div id="tabs-1">
 
-            <% todos.forEach( function(todo ) { %>
+        <% todos.forEach( function(todo ) { %>
 
-        <table>
+        <table >
 
-            <tr>
+            <tr >
 
                 <td>
 
-                    <%= todo.lesson %><%= todo.time.toDateString() %><%= todo.trainer %><%= todo.price %>
+                    <%= todo.lesson %><%= todo.time %><%= todo.trainer %><%= todo.price %>
                     <a class="del-btn" href="/destroy/<%= todo._id %>" title="Delete this todo item">Delete</a>
 
                 </td>
 
             </tr>
         </table>
-            <% });%>
+        <% });%>
 
 
     </div>
+
+
+
+
 
 
 
