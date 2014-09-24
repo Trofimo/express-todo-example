@@ -22,10 +22,7 @@
     </style>
     <script>
         $(function () {
-            var tabTitle = $("#tab_title"),
-                    tabContent = $("#tab_content"),
-                    tabTemplate = "<li><a href='#{href}'>#{li}</a> <span class='ui-icon ui-icon-close' role='presentation'>Remove Tab</span></li>",
-                    tabCounter = 2;
+
 
             var tabs = $("#tabs").tabs();
 
@@ -71,19 +68,26 @@
     </div>
 </form>
 
-<% todos.forEach( function (todo){ %>
+
 <div id="tabs">
     <ul>
+        <% todos.forEach( function (todo){ %>
+
         <li>
 
-            <a href="#tab_content"><%= todo._id %> <%= todo.count %></a>
+            <a href="#<%= todo._id %>"> <%= todo._id %> <%= todo.count %></a>
 
         </li>
+        <% }); %>
     </ul>
+
+
+    <% todos.forEach( function (todo){ %>
+    <div id="<%= todo._id %>">
     <table class="table">
 
         <% todo.books.forEach(function(t){ %>
-        <div id="tab_content">
+
             <tr>
 
                 <td>
@@ -93,13 +97,17 @@
                 </td>
 
             </tr>
-        </div>
+
         <% }); %>
     </table>
+    </div>
+    <% }); %>
 
-</div>
+    </div>
 
-<% }); %>
+
+
+
 
 </body>
 </html>
