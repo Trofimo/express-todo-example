@@ -4,39 +4,30 @@ var Todo = mongoose.model( 'Todo' );
 exports.index = function ( req, res, next ){
 
     Todo.
-
-
         aggregate(
         [
             {
-                $group : {
-                    _id : { lesson: "$lesson"},
-                    count: { $sum: 1 }
-                }
+            $group : {
+                _id : "$lesson",
+                books: { $push: "$$ROOT" },
+                count:{$sum:1}
+            }
 
             }
 
 
 
-        ],
-        function(err, count) {
-            console.log(count);}
+        ]
+        ,
+        function(err, todos) {
+            res.render('index', {
 
-    );
-    Todo.
-        find().
-        exec( function ( err, todos ){
-          if( err ) return next( err );
+                todos: todos
+            });
 
-                res.render( 'index', {
+        }
+);
 
-                    title : 'Bla-bla-bla',
-                    todos : todos
-
-
-                });
-
-        });
 
 };
 

@@ -3,3 +3,8 @@
 
     width: 20px;
 }
+.del-btn{
+
+
+    background-image: url("../images/delete.png");
+}
