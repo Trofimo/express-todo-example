@@ -1,10 +1,43 @@
 .table{
     table-layout: fixed;
 
-    width: 20px;
+
 }
 .del-btn{
 
 
-    background-image: url("../images/delete.png");
+    background-image: url("../images/Cancel.ico");
+}
+
+#tabs {
+    margin-top: 1em;
+}
+
+#tabs li  {
+    float: left;
+    margin: 0.4em 0.2em 0 0;
+    cursor: pointer;
+}
+
+
+
+
+ul li
+{
+    float:inherit;
+
+
+}
+
+
+
+a:hover
+{
+    background:gainsboro;
+    color:black;
+}
+
+a:focus{
+    background:gray;
+    color:green;
 }
