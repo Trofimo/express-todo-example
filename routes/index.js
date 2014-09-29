@@ -8,7 +8,7 @@ exports.index = function ( req, res, next ){
         [
             {
             $group : {
-                _id : "$lesson",
+                _id : { year: { $year : "$time" }, month: { $month : "$time" },day: { $dayOfMonth : "$time" }},
                 books: { $push: "$$ROOT" },
                 count:{$sum:1}
             }
@@ -20,6 +20,7 @@ exports.index = function ( req, res, next ){
         ]
         ,
         function(err, todos) {
+            console.log(todos);
             res.render('index', {
 
                 todos: todos

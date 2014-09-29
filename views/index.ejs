@@ -19,6 +19,8 @@
         <input id="add" type="submit"/>
     </div>
 </form>
+
+
 <div id="tabs">
 
 
@@ -30,20 +32,15 @@
 
         <li >
 
-            <a href="#<%= todo._id %>"> <%= todo._id %> <%= todo.count %></a>
+            <a href="#<%= todo._id.day %>"> <%= todo._id.month %> / <%= todo._id.day %> <%= todo.count %></a>
 
         </li>
         <% }); %>
 
 
-      </ul>
-
-
-
-
-
+    </ul>
     <% todos.forEach( function (todo){ %>
-    <div id="<%= todo._id %>">
+    <div id="<%= todo._id.day %>">
         <table class="table">
 
             <% todo.books.forEach(function(t){ %>
@@ -74,7 +71,7 @@
 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 <script type="text/javascript">
     $(function () {
-      var tabs = $("#tabs").tabs();
+        var tabs = $("#tabs").tabs();
     });
 </script>
 <script type="text/javascript">
@@ -124,5 +121,9 @@
         });
     });
 </script>
+
+
+
+
 </body>
 </html>
